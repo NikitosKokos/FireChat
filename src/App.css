@@ -71,6 +71,14 @@ body{
   }
 }
 
+.messages{
+  width: 100%;
+  height: calc(100vh - 159px);
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 15px;
+}
+
 .message{
   display: flex;
   align-items: flex-start;
@@ -112,4 +120,63 @@ body{
 
 .message_current .message__text{
   margin: 0px 15px 0px 0px;
+}
+
+.send{
+  border-top: 1px solid #f50057;
+  height: 80px;
+  padding: 0 15px;
+  
+}
+
+.send .send__input{
+  flex: 1 1 auto;
+  margin-right: 15px;
+}
+
+.send .send__btn{
+  padding: 15.5px 25.5px;
+}
+
+.logo{
+  color: #fff;
+  font-size: 30px;
+}
+
+@media (max-width: 767px){
+  .send .send__input{
+    margin-right: 5px;
+    
+  }
+  .send .send__input input{
+    padding: 10px 15px;
+  }
+  .send .send__btn{
+    padding: 6px 16px;
+  }
+  .send{
+    border-top: 1px solid #f50057;
+    height: 60px;
+    padding: 0 5px;
+  }
+  .messages{
+    height: calc(100vh - 139px);
+    padding: 5px;
+  }
+  .message{
+    margin: 0px 0px 5px 0px;
+  }
+  .message__text{
+    margin: 0px 0px 0px 5px;
+  }
+  .message_current .message__text{
+    margin: 0px 5px 0px 0px;
+  }
+  .message__name{
+    max-width: 60px;
+    font-size: 12px;
+  }
+  .logo{
+    font-size: 24px;
+  }
 }

@@ -36,12 +36,10 @@ function Chat() {
                 <Grid container
                       alignItems='flex-end'
                       direction='column'
-                      style={{width: '100%', padding: '20px', background: '#fff', marginTop: '15px'}}
+                      style={{width: '100%', background: '#fff', marginTop: '15px'}}
                 >
                     
-                    <div
-                        style={{width: '100%',height: '70vh', flex: '1 1 auto', border: '1px solid #fff', overflowY: 'auto', paddingRight: '10px'}}
-                    >
+                    <div className='messages'>
                         {
                         loading ?
                         <Grid container 
@@ -52,23 +50,29 @@ function Chat() {
                             <Loader/>
                         </Grid>
                         : 
-                        messages.map(message => <Message photoURL={message.photoURL} displayName={message.displayName} text={message.text} current={user.uid === message.uid}
+                        messages.map(message => <Message photoURL={message.photoURL} displayName={message.displayName} text={message.text} current={user ? (user.uid === message.uid): false}
                          />)
                         }
                     </div>
                     <Grid container
                           alignItems='center'
-                          style={{borderTop: '1px solid #f50057', paddingTop: '20px'}}
+                          justify='center'
+                          className='send'
                     >
                         <TextField 
                             variant='outlined'
                             placeholder='Enter new message...'
-                            style={{flex: '1 1 auto', marginRight: '15px'}}
                             rowsMax={2}
                             value={value}
                             onChange={e => setValue(e.target.value)}
+                            className='send__input'
                         />
-                        <Button onClick={sendMessage} style={{padding: '15.5px 25.5px'}} variant="outlined" color="secondary">Send</Button>
+                        <Button 
+                            onClick={sendMessage}
+                            variant="outlined" 
+                            color="secondary"
+                            className='send__btn'
+                        >Send</Button>
                     </Grid>  
                 </Grid>
             </Grid>
